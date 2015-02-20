@@ -41,7 +41,8 @@ angular.module('be.comments', [])
     }
     var comment = {
       text: $scope.commentText,
-      email: $scope.email
+      email: $scope.email,
+      datetime: new Date()
     };
     if ($scope.name) {
       comment.name = $scope.name;
