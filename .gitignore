@@ -1,0 +1,17 @@
+*.pyc
+*.DS_Store
+*.sqlite3
+vendor
+build/templates
+*.sublime-workspace
+*.sublime-project
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+source/js/templates.js
+node_modules
+npm-debug.log
+local_untracked.py
+bower_components

@@ -1,0 +1,23 @@
+{
+  "name": "be-comments",
+  "version": "0.0.1",
+  "repository": "https://github.com/buildingenergy/be-comments",
+  "dependencies": {},
+  "description": "dynamic and reusable AngularJS comments",
+  "main": "comments.min.js",
+  "license": "Building Energy, Inc.",
+  "homepage": "https://github.com/buildingenergy/be-comments",
+  "devDependencies": {
+    "gulp": "~3.2.4",
+    "gulp-angular-templatecache": "~0.1.2",
+    "gulp-concat": "~2.1.7",
+    "gulp-less": "~1.1.1",
+    "gulp-minify-html": "~0.1.0",
+    "gulp-ng-annotate": "^0.5.2",
+    "gulp-uglifyjs": "^0.6.0",
+    "gulp-webserver": "~0.3.4"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
