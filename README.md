@@ -4,7 +4,7 @@ easy to use directive and css for a nice comment block
 
 ![comments](/images/comments.png?raw=true)
 
-### isntall
+### install
 
 requires **AngularJS**, **font-awesome**, and **lodash**
 
