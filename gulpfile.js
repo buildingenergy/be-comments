@@ -23,10 +23,10 @@ gulp.task('scripts', function() {
     .pipe(templates('templates.js'))
     .pipe(gulp.dest('build/templates'));
 
-  // gulp.src(['source/js/**/*.js', '!source/js/lib/**', 'build/templates/templates.js'])
-  //   .pipe(concat("comments.js"))
-  //   .pipe(ngAnnotate())
-  //   .pipe(gulp.dest('build/js'));
+  gulp.src(['source/js/**/*.js', '!source/js/lib/**', 'build/templates/templates.js'])
+    .pipe(concat("comments.js"))
+    .pipe(ngAnnotate())
+    .pipe(gulp.dest('build/js'));
 
   gulp.src(['source/js/**/*.js', '!source/js/lib/**', 'build/templates/templates.js'])
     .pipe(concat("comments.js"))
