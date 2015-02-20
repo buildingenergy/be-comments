@@ -51,6 +51,16 @@ angular.module('be.comments', [])
     $scope.commentText = "";
     commentsService.scrollToBottom(self.$element);
   };
+
+  /**
+   * submits on enter key
+   */
+  $scope.submitOnEnter = function (event) {
+    if (event.keyCode === 13) {
+      $scope.submitAComment();
+    }
+  };
+
   scope.$watch('commentsData', function () {
     commentsService.scrollToBottom(self.$element);
   });

@@ -29,14 +29,14 @@
                     </table>
                 </div>
                 <div class="comment_input">
-                    <ng-form name="commentForm" ng-submit="submitAComment()">
-                            <div class="form-group">
-                                    <div class="input-group">
-                                        <input name="commentText" type="text" class="form-control" id="commentText" placeholder="Write a comment..." ng-model="commentText">
-                                        <a class="input-group-addon" ng-click="submitAComment()"><i class="fa fa-comment-o" ng-if="commentText.length == 0 || !commentText"></i><i class="fa fa-comment" ng-if="commentText.length > 0"></i></a>
-                                    </div>
+                    <div name="commentForm" ng-submit="submitAComment()">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input name="commentText" type="text" class="form-control" id="commentText" placeholder="Write a comment..." ng-model="commentText" ng-keyup="submitOnEnter($event)">
+                                <a class="input-group-addon" ng-click="submitAComment()"><i class="fa fa-comment-o" ng-if="commentText.length == 0 || !commentText"></i><i class="fa fa-comment" ng-if="commentText.length > 0"></i></a>
                             </div>
-                    </ng-form>
+                        </div>
+                    </div>
                 </div>
         </div>
     </div>

@@ -51,6 +51,16 @@ angular.module('be.comments', [])
     $scope.commentText = "";
     commentsService.scrollToBottom(self.$element);
   };
+
+  /**
+   * submits on enter key
+   */
+  $scope.submitOnEnter = function (event) {
+    if (event.keyCode === 13) {
+      $scope.submitAComment();
+    }
+  };
+
   scope.$watch('commentsData', function () {
     commentsService.scrollToBottom(self.$element);
   });
@@ -73,4 +83,4 @@ angular.module('be.comments', [])
   };
 });
 
-angular.module("be.comments").run(["$templateCache", function($templateCache) {$templateCache.put("be.comments.html","<div class=\"section_content_container\"><div class=\"section_content with_padding with_top_padding\"><div class=\"comment_section_container\"><div class=\"comment_section_title\"><ng-pluralize count=\"commentsData.length\" when=\"{\'0\': \'Comments\', \'1\': \'1 Comment\', \'other\': \'{} Comments\'}\"></ng-pluralize></div><div class=\"comment_container\"><table ng-class=\"{contacts_comment: c.email !== email, user_comment: c.email === email}\" ng-repeat=\"c in commentsData\"><tbody><tr><td colspan=\"2\" class=\"time_stamp\" ng-hide=\"true\">thu 2:08 pm</td></tr><tr><td><div ng-if=\"c.email !== email\">{{ c.name | initials }}</div></td><td><div class=\"comment\">{{ c.text }}</div></td><td></td></tr></tbody></table></div><div class=\"comment_input\"><ng-form name=\"commentForm\" ng-submit=\"submitAComment()\"><div class=\"form-group\"><div class=\"input-group\"><input name=\"commentText\" type=\"text\" class=\"form-control\" id=\"commentText\" placeholder=\"Write a comment...\" ng-model=\"commentText\"> <a class=\"input-group-addon\" ng-click=\"submitAComment()\"><i class=\"fa fa-comment-o\" ng-if=\"commentText.length == 0 || !commentText\"></i><i class=\"fa fa-comment\" ng-if=\"commentText.length > 0\"></i></a></div></div></ng-form></div></div></div></div>");}]);
+angular.module("be.comments").run(["$templateCache", function($templateCache) {$templateCache.put("be.comments.html","<div class=\"section_content_container\"><div class=\"section_content with_padding with_top_padding\"><div class=\"comment_section_container\"><div class=\"comment_section_title\"><ng-pluralize count=\"commentsData.length\" when=\"{\'0\': \'Comments\', \'1\': \'1 Comment\', \'other\': \'{} Comments\'}\"></ng-pluralize></div><div class=\"comment_container\"><table ng-class=\"{contacts_comment: c.email !== email, user_comment: c.email === email}\" ng-repeat=\"c in commentsData\"><tbody><tr><td colspan=\"2\" class=\"time_stamp\" ng-hide=\"true\">thu 2:08 pm</td></tr><tr><td><div ng-if=\"c.email !== email\">{{ c.name | initials }}</div></td><td><div class=\"comment\">{{ c.text }}</div></td><td></td></tr></tbody></table></div><div class=\"comment_input\"><div name=\"commentForm\" ng-submit=\"submitAComment()\"><div class=\"form-group\"><div class=\"input-group\"><input name=\"commentText\" type=\"text\" class=\"form-control\" id=\"commentText\" placeholder=\"Write a comment...\" ng-model=\"commentText\" ng-keyup=\"submitOnEnter($event)\"> <a class=\"input-group-addon\" ng-click=\"submitAComment()\"><i class=\"fa fa-comment-o\" ng-if=\"commentText.length == 0 || !commentText\"></i><i class=\"fa fa-comment\" ng-if=\"commentText.length > 0\"></i></a></div></div></div></div></div></div></div>");}]);
