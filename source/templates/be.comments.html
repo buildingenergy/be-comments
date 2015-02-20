@@ -12,7 +12,7 @@
                             <table ng-class="{contacts_comment: c.email !== email, user_comment: c.email === email}" ng-repeat="c in commentsData">
                                 <thead>
                                     <tr>
-                                        <th colspan="2" class="time_stamp" ng-show="c.datetime">{{ c.datetime | date:'short' }}</th>
+                                        <th colspan="2" class="time_stamp" ng-show="c.datetime">{{ c.datetime | date:'MMM d, h:mm a' }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -22,7 +22,7 @@
                                         </td>
                                         <td>
                                             <div class="comment">
-                                            {{ c.text }}
+                                                {{ c.text }}
                                             </div>
                                         </td>
                                     </tr>
