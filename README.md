@@ -6,15 +6,12 @@ easy to use directive and css for a nice comment block
 
 ### install
 
-#### requires
+#### requires (see bower.json)
 
-**AngularJS**
-
-**font-awesome**
-
-**lodash**
-
-**bootstrap css**
+- AngularJS
+- font-awesome
+- lodash
+- bootstrap css
 
 #### getting it
 
@@ -105,9 +102,9 @@ see LICENSE.md
 
 1. Update the `build` js and css by:
 
-```console
-gulp build
-```
+  ```console
+  gulp build
+  ```
 
 2. Commit the updates
 
