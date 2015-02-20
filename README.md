@@ -6,7 +6,23 @@ easy to use directive and css for a nice comment block
 
 ### install
 
-requires **AngularJS**, **font-awesome**, and **lodash**
+#### requires
+**AngularJS**
+**font-awesome**
+**lodash**
+**bootstrap css**
+
+#### getting it
+
+Add this to your `bower.json`
+
+```json
+{
+  "be-comments": "https://<token here>@github.com/buildingenergy/be-comments.git"
+}
+````
+
+then `bower install`
 
 include `comments.js`, `comments.css` in your HTML
 
