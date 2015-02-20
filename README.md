@@ -2,7 +2,7 @@
 
 easy to use directive and css for a nice comment block
 
-![comments](https://raw.githubusercontent.com/buildingenergy/be-comments/master/images/comments.png)
+![comments](/images/comments.png?raw=true)
 
 ### isntall
 
