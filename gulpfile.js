@@ -49,7 +49,7 @@ gulp.task('less', function () {
     .pipe(gulp.dest('build/css'));
 });
 
-gulp.task('build', ['html', 'scripts']);
+gulp.task('build', ['html', 'scripts', 'less']);
 
 gulp.task('serve', function() {
     return gulp.src('.')
