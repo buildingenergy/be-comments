@@ -96,3 +96,17 @@ gulp build
 ### license
 
 see LICENSE.md
+
+#### release
+
+1. Update the `build` js and css by:
+
+```console
+gulp build
+```
+
+2. Commit the updates
+
+3. Add a semver tag for the release
+
+
