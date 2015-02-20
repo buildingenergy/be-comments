@@ -22,7 +22,7 @@
 // Type size
 // =========
 
-@line-height-base: 1.65;
+@line-height-base: 1.25;
 
 // Colors
 // =============
@@ -39,57 +39,49 @@
 // =============
 
 @-webkit-keyframes pop {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
   0% {
-    -webkit-transform:scale(0.1, 0.1);
+    -webkit-transform:scaleX(0);
+    opacity: 0;
   }
   100% {
-    -webkit-transform:scale(1,1);
-  }
-}
-
-@-moz-keyframes pop {
-  0% {
-    -moz-transform:scale(0.1, 0.1);
-  }
-  100% {
-    -moz-transform:scale(1,1);
-  }
-}
-
-@-o-keyframes pop {
-  0% {
-    -o-transform:scale(0.1, 0.1);
-  }
-  100% {
-    -o-transform:scale(1,1);
+    -webkit-transform:scaleX(1);
+    opacity: 1;
   }
 }
 
 @keyframes pop {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
   0% {
-    transform:scale(0.1, 0.1);
+    transform:scaleX(0);
+    opacity: 0;
   }
   100% {
-    transform:scale(1,1);
+    transform:scaleX(1);
+    opacity: 1;
   }
 }
 
 html {
-    font-family: @font-family-base;
 
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: @font-family-base;
     color: @black;
     line-height: @line-height-base;
     font-variant: normal;
     text-rendering: @legibility;
     -webkit-font-smoothing: @knockout;
-    margin: 0;
-    padding: 0;
-}
-body {
-
-    font-size: 1.55em;
+    font-size: 1.75em;
     background-color: @gray;
-
     margin: 20px;
 }
 
@@ -153,7 +145,7 @@ body {
                     display: inline-block;
                     margin-left: 10px;
                     margin-right: 80px;
-                    padding: 8px 12px;
+                    padding: 8px 12px 7px 12px;
                     border-radius: 16px;
                     background-color: @grayLightest;
                 }
@@ -172,7 +164,7 @@ body {
                 .comment {
                     margin-right: 0px;
                     margin-left: 80px;
-                    padding: 8px 12px;
+                    padding: 8px 12px 7px 12px;
                     border-radius: 16px;
                     color: @white;
                     font-weight: bold;
@@ -180,19 +172,23 @@ body {
                     text-align: left;
                     display: inline-block;
                     -webkit-animation: pop 0.2s; /* Safari 4+ */
-                    -moz-animation: pop 0.2s; /* Fx 5+ */
-                    -o-animation: pop 0.2s; /* Opera 12+ */
-                    animation: pop 0.2s; /* IE 10+ */
+                   animation: pop 0.2s; /* IE 10+ */
+                    -webkit-animation-fill-mode: both;
+                    animation-fill-mode: both;
+
+                    span {
+
+                    }
                 }
             }
             th.time_stamp {
                 padding: 8px 0;
                 width: 100%;
-                font-size: .95em;
+                font-size: .85em;
                 font-weight: normal;
                 text-align: center;
                 text-transform: uppercase;
-                color: darken(@grayLighter, 10%);
+                color: darken(@grayLighter, 15%);
             }
         }
     }
