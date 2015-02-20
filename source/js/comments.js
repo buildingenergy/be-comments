@@ -13,7 +13,7 @@ angular.module('comments', [])
       return initials;
   };
 })
-.service('commentsService', ['$timeout', function($timeout){
+.service('commentsService', function($timeout){
   /**
    * scrolls the element div to bottom
    */
@@ -22,7 +22,7 @@ angular.module('comments', [])
       element.scrollTop = element.scrollHeight;
     }, 100);
   };
-}])
+})
 .controller('commentsController', ['$scope', 'commentsService', function($scope, commentsService){
   var self = this,
       scope = $scope;

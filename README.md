@@ -7,9 +7,13 @@ easy to use directive and css for a nice comment block
 ### install
 
 #### requires
+
 **AngularJS**
+
 **font-awesome**
+
 **lodash**
+
 **bootstrap css**
 
 #### getting it
@@ -34,7 +38,7 @@ include `comments.js`, `comments.css` in your HTML
 
 ...
 
-<script src="bower_components/angular-components/comments.js"></script>
+<script src="bower_components/angular-components/comments.min.js"></script>
 <link href="bower_components/angular-components/comments.css" rel="stylesheet" type="text/css" />
 ```
 
@@ -110,3 +114,7 @@ gulp build
 3. Add a semver tag for the release
 
 
+### todos
+
+- figure out why two gulp builds are needed to get htmlMinify included
+- adds ES6 transpiling

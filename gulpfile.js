@@ -6,7 +6,6 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglifyjs');
 var concat = require('gulp-concat');
 var less = require('gulp-less');
-var ngmin = require('gulp-ngmin');
 var minifyHTML = require('gulp-minify-html');
 var ngAnnotate = require('gulp-ng-annotate');
 var templates = require('gulp-angular-templatecache');
@@ -24,10 +23,10 @@ gulp.task('scripts', function() {
     .pipe(templates('templates.js'))
     .pipe(gulp.dest('build/templates'));
 
-  gulp.src(['source/js/**/*.js', '!source/js/lib/**', 'build/templates/templates.js'])
-    .pipe(concat("comments.js"))
-    .pipe(ngAnnotate())
-    .pipe(gulp.dest('build/js'));
+  // gulp.src(['source/js/**/*.js', '!source/js/lib/**', 'build/templates/templates.js'])
+  //   .pipe(concat("comments.js"))
+  //   .pipe(ngAnnotate())
+  //   .pipe(gulp.dest('build/js'));
 
   gulp.src(['source/js/**/*.js', '!source/js/lib/**', 'build/templates/templates.js'])
     .pipe(concat("comments.js"))
