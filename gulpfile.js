@@ -11,8 +11,13 @@ var ngAnnotate = require('gulp-ng-annotate');
 var templates = require('gulp-angular-templatecache');
 var webserver = require('gulp-webserver');
 var karma = require('gulp-karma');
+var protractor = require("gulp-protractor").protractor;
+var bower = require('gulp-bower');
 
 
+gulp.task('prereqs', function () {
+  return bower();
+});
 
 gulp.task('html', function () {
   return gulp.src('source/templates/**/*.html')
@@ -57,7 +62,7 @@ gulp.task('serve', function() {
             livereload: true,
             port: 8204,
             directoryListing: true,
-            open: true,
+            open: false,
             fallback: "demo/index.html"
         }));
 });
@@ -97,4 +102,14 @@ gulp.task('autotest', function() {
   return gulp.watch(['source/js/**/*.js', '!source/js/**/templates.js', 'source/templates/*.html', 'tests/unit/*.js'], function (){
     gulp.run('test');
   });
+});
+
+gulp.task('e2e', ['build'], function () {
+  gulp.run('serve');
+  gulp.src(["./source/tests/e2e/*.js"])
+    .pipe(protractor({
+        configFile: "protractor.config.js",
+        args: ['--baseUrl', 'http://127.0.0.1:8204']
+    }))
+    .on('error', function(e) { throw e; });
 });

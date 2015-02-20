@@ -100,6 +100,16 @@ gulp build
 
 #### test
 
+protractor
+
+```console
+npm install -g protractor
+webdriver-manager update
+webdriver-manager start
+# in another tab
+gulp e2e
+```
+
 ```console
 gulp test
 # or
@@ -128,3 +138,5 @@ see LICENSE.md
 - ~~figure out why two gulp builds are needed to get htmlMinify included~~
 - adds ES6 transpiling
 - fix min map
+- selenium tests
+- ~~unit tests~~
