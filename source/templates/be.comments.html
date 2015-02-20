@@ -10,7 +10,7 @@
                     <table ng-class="{contacts_comment: c.email !== email, user_comment: c.email === email}" ng-repeat="c in commentsData">
                         <tbody>
                             <tr>
-                                <td colspan="2" class="time_stamp" ng-hide="true">thu 2:08 pm</td>
+                                <td colspan="2" class="time_stamp" ng-show="c.datetime">{{ c.datetime | date:'short' }}</td>
                             </tr>
                             <tr>
                                 <td>

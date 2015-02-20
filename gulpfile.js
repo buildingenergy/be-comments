@@ -67,7 +67,7 @@ gulp.task('default', function() {
   gulp.run('serve');
   gulp.run('build');
   // Watch files and run tasks if they change
-  gulp.watch(['source/js/**/*.js', '!source/js/**/templates.js'], function(event) {
+  gulp.watch(['source/js/**/*.js', '!source/js/**/templates.js', 'source/templates/*.html'], function(event) {
     gulp.run('build');
   });
   gulp.watch('source/less/**', function(event) {
