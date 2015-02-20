@@ -89,10 +89,20 @@ angular.controller('myController', []).controller('myController', ['$scope', fun
 ### develop
 
 ```console
-npm install
+npm install -g gulp
 npm install -g bower
+npm install -g karma-cli
+npm install
 bower install
 gulp build
+```
+
+#### test
+
+```console
+gulp test
+# or
+karma start
 ```
 
 ### license
