@@ -9,7 +9,7 @@
   "homepage": "https://github.com/buildingenergy/be-comments",
   "devDependencies": {
     "gulp": "~3.2.4",
-    "gulp-angular-templatecache": "~0.1.2",
+    "gulp-angular-templatecache": "^1.5.0",
     "gulp-concat": "~2.1.7",
     "gulp-less": "~1.1.1",
     "gulp-minify-html": "~0.1.0",

@@ -116,5 +116,6 @@ gulp build
 
 ### todos
 
-- figure out why two gulp builds are needed to get htmlMinify included
+- ~~figure out why two gulp builds are needed to get htmlMinify included~~
 - adds ES6 transpiling
+- fix min map

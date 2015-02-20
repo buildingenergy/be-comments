@@ -11,17 +11,21 @@ var ngAnnotate = require('gulp-ng-annotate');
 var templates = require('gulp-angular-templatecache');
 
 
-gulp.task('scripts', function() {
-  // Minify and copy all JavaScript
-
-  gulp.src('source/templates/**/*.html')
+gulp.task('html', function () {
+  return gulp.src('source/templates/**/*.html')
     .pipe(minifyHTML({
           empty: true,
           spare: true,
           quotes: true
       }))
-    .pipe(templates('templates.js'))
+    .pipe(templates({
+      filename: 'templates.js'
+    }))
     .pipe(gulp.dest('build/templates'));
+});
+
+gulp.task('scripts', ['html'], function() {
+  // Minify and copy all JavaScript
 
   gulp.src(['source/js/**/*.js', '!source/js/lib/**', 'build/templates/templates.js'])
     .pipe(concat("comments.js"))
@@ -38,14 +42,12 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('less', function () {
-  gulp.src('source/less/comments.less')
+  return gulp.src('source/less/comments.less')
     .pipe(less())
     .pipe(gulp.dest('build/css'));
 });
 
-gulp.task('build', function(){
-    gulp.run('scripts', 'less');
-});
+gulp.task('build', ['html', 'scripts']);
 
 // The default task (called when you run `gulp`)
 gulp.task('default', function() {
