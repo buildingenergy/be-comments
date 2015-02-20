@@ -4,7 +4,7 @@
   "homepage": "https://github.com/buildingenergy/be-comments",
    "authors": [
     "Aleck Landgraf <aleck.landgraf@buildingenergy.com>",
-    "John Skelton <john.skelton@buildingenergy.com"
+    "John Skelton <john.skelton@buildingenergy.com>"
   ],
   "description": "AngularJS comments directive",
   "main": "build/js/comments.min.js",
