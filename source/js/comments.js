@@ -13,7 +13,7 @@ angular.module('comments', [])
       return initials;
   };
 })
-.service('commentsService', function($timeout){
+.service('commentsService', ['$timeout', function($timeout){
   /**
    * scrolls the element div to bottom
    */
@@ -22,7 +22,7 @@ angular.module('comments', [])
       element.scrollTop = element.scrollHeight;
     }, 100);
   };
-})
+}])
 .controller('commentsController', ['$scope', 'commentsService', function($scope, commentsService){
   var self = this,
       scope = $scope;
@@ -33,7 +33,6 @@ angular.module('comments', [])
    */
   this.init = function ( element ) {
     self.$element = element[0].getElementsByClassName('comment_container')[0];
-    $scope.$element1 = self.$element;
     commentsService.scrollToBottom(self.$element);
   };
   scope.submitAComment = function () {
