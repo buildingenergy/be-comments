@@ -2,7 +2,7 @@
  * :copyright: (c) 2015 Building Energy Inc
  * :license: see LICENSE for more details.
  */
-angular.module('comments', [])
+angular.module('be.comments', [])
 .filter('initials', function () {
   return function (name) {
       var initials = "";
@@ -69,6 +69,6 @@ angular.module('comments', [])
     link: function (scope, element, attrs, commentsCtrl) {
       commentsCtrl.init( element );
     },
-    templateUrl: 'comments.html'
+    templateUrl: 'be.comments.html'
   };
 });

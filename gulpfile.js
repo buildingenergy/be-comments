@@ -20,7 +20,7 @@ gulp.task('html', function () {
     }))
     .pipe(templates({
       filename: 'templates.js',
-      module: 'comments'
+      module: 'be.comments'
     }))
     .pipe(gulp.dest('build/templates'));
 });

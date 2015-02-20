@@ -38,14 +38,14 @@ include `comments.js`, `comments.css` in your HTML
 
 ...
 
-<script src="bower_components/angular-components/comments.min.js"></script>
-<link href="bower_components/angular-components/comments.css" rel="stylesheet" type="text/css" />
+<script src="bower_components/be-comments/build/js/comments.min.js"></script>
+<link href="bower_components/be-comments/build/css/comments.css" rel="stylesheet" type="text/css" />
 ```
 
 and in your angular module
 
 ```js
-var app = angular.module('app', ['comments']);
+var app = angular.module('app', ['be.comments']);
 ```
 
 ### usage
