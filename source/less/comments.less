@@ -1,0 +1,153 @@
+/* TYPOGRAPHY
+
+    PT Sans and PT Sans Narrow from ParaType
+    Designed by Alexandra Korolkova, Olga Umpeleva and Vladimir Yefimov and released by ParaType in 2009.
+    https://www.google.com/fonts/specimen/PT+Sans
+
+*/
+@font-family-sans-serif:        "PT Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif-narrow:     "PT Sans Narrow","Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-base:              @font-family-sans-serif;
+@font-family-base-narrow:           @font-family-sans-serif-narrow;
+@font-size-base:                13px;
+
+@legibility:        optimizeLegibility;
+@knockout:      antialiased;
+
+@white:                        #fff;
+@black:                        #222;
+@gray:                          #666;
+@grayLight:                  #999;
+@grayLighter:               #ddd;
+@grayLightest:              #eee;
+@info-blue:                  #5bc0de;
+
+body {
+    margin: 0;
+    font-family: @font-family-base;
+    font-size: @font-size-base;
+    text-rendering: @legibility;
+    -webkit-font-smoothing: @knockout;
+    color: @black;
+}
+
+
+.comment_section_container {
+    position: relative;
+    padding: 45px 15px 0px;
+    margin: 0 -15px 15px;
+    background-color: @white;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+    max-height: 500px;
+    border: 1px solid @grayLighter;
+
+    .comment_section_title {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 13px;
+        font-weight: bold;
+        color: @grayLight;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .comment_container {
+        position: relative;
+        display: block;
+        padding-bottom: 15px;
+        max-height: 380px;
+        overflow-x:  scroll;
+
+        table {
+            margin-top: 4px;
+
+            &.contacts_comment tbody tr td:nth-child(1) {
+                vertical-align: bottom;
+                text-align: center;
+                width: 36px;
+
+                div {
+                    display: table-cell;
+                    background-color: @grayLighter;
+                    color: @gray;
+                    width: 36px;
+                    height: 36px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    border-radius: 18px;
+                    vertical-align: middle;
+
+                    img {
+                        border-radius: 18px;
+                    }
+                }
+            }
+            &.contacts_comment tbody tr td:nth-child(2) {
+
+                .comment {
+                    margin-left: 10px;
+                    margin-right: 80px;
+                    padding: 6px 10px;
+                    border-radius: 16px;
+                    font-size: 14px;
+                    background-color: lighten(@grayLightest, 4%);
+                }
+            }
+            &.user_comment tbody tr td:nth-child(1) {
+                vertical-align: bottom;
+                width: 0;
+                img {
+                    display: none;
+                }
+            }
+            &.user_comment tbody tr td:nth-child(2) {
+                text-align: right;
+                width: 100%;
+
+                .comment {
+                    margin-right: 0px;
+                    margin-left: 80px;
+                    padding: 6px 10px;
+                    border-radius: 16px;
+                    color: @white;
+                    font-size: 14px;
+                    font-weight: bold;
+                    background-color: @info-blue;
+                    text-align: right;
+                    display: inline-block;
+                }
+            }
+            td.time_stamp {
+                width: 100%;
+                text-align: center;
+                text-transform: uppercase;
+                color: @gray_lighter;
+            }
+        }
+    }
+    .comment_input {
+        margin-left: -15px;
+        margin-right: -15px;
+        padding: 15px;
+        border-top: 1px solid @grayLighter;
+        background-color: lighten(@grayLightest, 3%);
+
+        .form-group {
+            margin-bottom: 0;
+
+            a {
+                cursor: pointer;
+
+                i {
+                    color: @info-blue;
+                }
+
+                &:hover {
+                    background-color: darken(@grayLightest, 5%);
+                }
+            }
+        }
+    }
+}
