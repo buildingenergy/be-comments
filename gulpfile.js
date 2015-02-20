@@ -9,6 +9,7 @@ var less = require('gulp-less');
 var minifyHTML = require('gulp-minify-html');
 var ngAnnotate = require('gulp-ng-annotate');
 var templates = require('gulp-angular-templatecache');
+var webserver = require('gulp-webserver');
 
 
 gulp.task('html', function () {
@@ -50,12 +51,24 @@ gulp.task('less', function () {
 
 gulp.task('build', ['html', 'scripts']);
 
+gulp.task('serve', function() {
+    return gulp.src('.')
+        .pipe(webserver({
+            livereload: true,
+            port: 8204,
+            directoryListing: true,
+            open: true,
+            fallback: "demo/index.html"
+        }));
+});
+
 // The default task (called when you run `gulp`)
 gulp.task('default', function() {
+  gulp.run('serve');
   gulp.run('build');
   // Watch files and run tasks if they change
   gulp.watch(['source/js/**/*.js', '!source/js/**/templates.js'], function(event) {
-    gulp.run('scripts');
+    gulp.run('build');
   });
   gulp.watch('source/less/**', function(event) {
     gulp.run('less');

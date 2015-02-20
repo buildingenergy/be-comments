@@ -30,6 +30,7 @@ include `comments.js`, `comments.css` in your HTML
 ```html
 <!-- these should be somewhere -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link data-require="bootstrap-css@3.x" data-semver="3.1.0" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
 <script src="bower_components/lodash/lodash.min.js"></script>
 
