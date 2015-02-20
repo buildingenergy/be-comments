@@ -15,16 +15,18 @@ describe("The be-comments directive", function() {
             {
                 text: 'Hello Bob',
                 name: 'Jane Doe',
-                email: 'jd@me.com'
+                email: 'jd@me.com',
+                datetime: '2012-02-02T11:33:33'
             },
             {
                 text: 'Hello Jane',
                 name: 'Bob Doe',
-                email: 'bd@me.com'
+                email: 'bd@me.com',
+                datetime: '2012-02-02T23:35:33'
             },
         ];
         $rootScope.user = {
-            name: 'Bob Dow',
+            name: 'Bob Doe',
             email: 'bd@me.com'
         };
         $rootScope.callbackHit = false;
@@ -43,44 +45,12 @@ describe("The be-comments directive", function() {
         // Check that the compiled element contains the templated content
         expect(element.html()).toContain("comment_container");
         expect(element.html()).toContain("comment_input");
+        expect(element.html()).toContain("JD");
+        expect(element.html()).toContain("Hello Bob");
+        expect(element.html()).toContain("Hello Jane");
+        expect(element.html()).toContain("2/2/12");
+        expect(element.html()).toContain("11:33 AM");
+        expect(element.html()).toContain("11:35 PM");
     });
-
-    // it('holds the table state in the models attrible', function() {
-    //     // arrange
-    //     var element = $compile('<be-table rows="rows" columns="columns" models="models"></be-table>')($rootScope);
-    //     // act
-    //     $rootScope.$digest();
-    //     // assert
-    //     expect($rootScope.models).not.toBe(undefined);
-    //     expect($rootScope.models.filter_params).toEqual({});
-    //     expect($rootScope.models.selected_rows.checked).toEqual([]);
-    // });
-
-    // it('should display floor_area types with commas and ft²', function() {
-    //     // arrange
-    //     var element = $compile('<be-table rows="rows" columns="columns" models="models"></be-table>')($rootScope);
-    //     // act
-    //     $rootScope.$digest();
-    //     // assert
-    //     expect(element.html()).toContain("1,235,345 ft²");
-    // });
-
-    // it('should display string types as strings', function() {
-    //     // arrange
-    //     var element = $compile('<be-table rows="rows" columns="columns" models="models"></be-table>')($rootScope);
-    //     // act
-    //     $rootScope.$digest();
-    //     // assert
-    //     expect(element.html()).toContain("7795"); // not 7,795
-    // });
-
-    // it('should display checkbox types', function() {
-    //     // arrange
-    //     var element = $compile('<be-table rows="rows" columns="columns" models="models"></be-table>')($rootScope);
-    //     // act
-    //     $rootScope.$digest();
-    //     // assert
-    //     expect(element.html()).toContain('<input type="checkbox" ng-model="controls.select_all_checkbox[c.model_name]" ng-change="select_all_rows(c.model_name)"');
-    // });
 
 });

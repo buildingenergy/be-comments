@@ -1,6 +1,7 @@
 ## Angular Comments
 
 easy to use directive and css for a nice comment block
+(jquery free except for testing)
 
 ![comments](/images/comments.png?raw=true)
 

@@ -39,9 +39,7 @@ gulp.task('scripts', ['html'], function() {
   gulp.src(['source/js/**/*.js', '!source/js/lib/**', 'build/templates/templates.js'])
     .pipe(concat("comments.js"))
     .pipe(ngAnnotate())
-    .pipe(uglify('comments.min.js', {
-      outSourceMap: true
-    }))
+    .pipe(uglify('comments.min.js'))
     .pipe(gulp.dest('build/js'));
 });
 
