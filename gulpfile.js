@@ -14,12 +14,13 @@ var templates = require('gulp-angular-templatecache');
 gulp.task('html', function () {
   return gulp.src('source/templates/**/*.html')
     .pipe(minifyHTML({
-          empty: true,
-          spare: true,
-          quotes: true
-      }))
+      empty: true,
+      spare: true,
+      quotes: true
+    }))
     .pipe(templates({
-      filename: 'templates.js'
+      filename: 'templates.js',
+      module: 'comments'
     }))
     .pipe(gulp.dest('build/templates'));
 });
