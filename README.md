@@ -1,6 +1,7 @@
 ## Angular Comments
 
 easy to use directive and css for a nice comment block
+(jquery free except for testing)
 
 ![comments](/images/comments.png?raw=true)
 
@@ -89,10 +90,20 @@ angular.controller('myController', []).controller('myController', ['$scope', fun
 ### develop
 
 ```console
-npm install
+npm install -g gulp
 npm install -g bower
+npm install -g karma-cli
+npm install
 bower install
 gulp build
+```
+
+#### test
+
+```console
+gulp test
+# or
+karma start
 ```
 
 ### license
