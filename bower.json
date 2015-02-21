@@ -17,6 +17,7 @@
     "tests",
     "demo",
     "lib",
+    "index.html",
     "circle.yml"
   ],
   "dependencies": {
