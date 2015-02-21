@@ -3,6 +3,8 @@
 easy to use directive and css for a nice comment block
 (jquery free except for testing)
 
+live demo: http://buildingenergy.github.io/be-comments/
+
 ![comments](/images/comments.png?raw=true)
 
 ### install
