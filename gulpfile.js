@@ -2,17 +2,19 @@
   Find plugins at https://npmjs.org/browse/keyword/gulpplugin
   from https://github.com/skoczen/inkandfeet/blob/master/gulpfile.js
 */
-var gulp = require('gulp');
-var uglify = require('gulp-uglifyjs');
-var concat = require('gulp-concat');
-var less = require('gulp-less');
-var minifyHTML = require('gulp-minify-html');
-var ngAnnotate = require('gulp-ng-annotate');
-var templates = require('gulp-angular-templatecache');
-var webserver = require('gulp-webserver');
-var karma = require('gulp-karma');
-var protractor = require("gulp-protractor").protractor;
-var bower = require('gulp-bower');
+var gulp = require('gulp'),
+    uglify = require('gulp-uglifyjs'),
+    concat = require('gulp-concat'),
+    less = require('gulp-less'),
+    minifyHTML = require('gulp-minify-html'),
+    ngAnnotate = require('gulp-ng-annotate'),
+    templates = require('gulp-angular-templatecache'),
+    webserver = require('gulp-webserver'),
+    karma = require('gulp-karma'),
+    protractor = require("gulp-protractor").protractor,
+    webdriverStandalone = require('gulp-protractor').webdriver_standalone,
+    webdriverUpdate = require('gulp-protractor').webdriver_update,
+    bower = require('gulp-bower');
 
 
 gulp.task('prereqs', function () {
@@ -56,7 +58,7 @@ gulp.task('less', function () {
 
 gulp.task('build', ['html', 'scripts', 'less']);
 
-gulp.task('serve', function() {
+gulp.task('serve', ['prereqs'], function() {
     return gulp.src('.')
         .pipe(webserver({
             livereload: true,
@@ -81,6 +83,8 @@ gulp.task('default', function() {
 });
 
 
+// testing
+
 gulp.task('test', ['build'], function() {
   // Be sure to return the stream
   // NOTE: Using the fake './foobar' so as to run the files
@@ -104,7 +108,12 @@ gulp.task('autotest', function() {
   });
 });
 
-gulp.task('e2e', ['build'], function () {
+
+gulp.task('webdriver:update', webdriverUpdate);
+gulp.task('webdriver:standalone', ['webdriver:update'], webdriverStandalone);
+
+
+gulp.task('e2e', ['build', 'webdriver:update'], function () {
   gulp.run('serve');
   gulp.src(["./source/tests/e2e/*.js"])
     .pipe(protractor({
