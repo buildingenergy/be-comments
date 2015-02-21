@@ -48,9 +48,10 @@ describe("The be-comments directive", function() {
         expect(element.html()).toContain("JD");
         expect(element.html()).toContain("Hello Bob");
         expect(element.html()).toContain("Hello Jane");
-        expect(element.html()).toContain("2/2/12");
+        expect(element.html()).toContain("Feb 2, 11:33 AM");
         expect(element.html()).toContain("11:33 AM");
         expect(element.html()).toContain("11:35 PM");
+        expect(element.html()).toContain("2 Comments");
     });
 
 });
