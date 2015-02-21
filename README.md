@@ -100,20 +100,14 @@ gulp build
 
 #### test
 
-protractor
+e2e
 
 ```console
-npm install -g protractor
-webdriver-manager update
-webdriver-manager start
-# in another tab
 gulp e2e
 ```
 
 ```console
-gulp test
-# or
-karma start
+gulp karma
 ```
 
 ### license
