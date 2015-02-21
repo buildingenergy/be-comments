@@ -106,13 +106,15 @@ e2e
 gulp e2e
 ```
 
+unit
+
 ```console
 gulp karma
 ```
 
 ### license
 
-see LICENSE.md
+see [LICENSE.md](LICENSE.md)
 
 #### release
 
