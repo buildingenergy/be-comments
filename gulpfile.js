@@ -85,7 +85,7 @@ gulp.task('default', function() {
 
 // testing
 
-gulp.task('test', ['build'], function() {
+gulp.task('karma', ['build'], function() {
   // Be sure to return the stream
   // NOTE: Using the fake './foobar' so as to run the files
   // listed in karma.conf.js INSTEAD of what was passed to
@@ -104,7 +104,8 @@ gulp.task('test', ['build'], function() {
 
 gulp.task('autotest', function() {
   return gulp.watch(['source/js/**/*.js', '!source/js/**/templates.js', 'source/templates/*.html', 'tests/unit/*.js'], function (){
-    gulp.run('test');
+    gulp.run('karma');
+    gulp.run('e2e');
   });
 });
 
@@ -114,11 +115,15 @@ gulp.task('webdriver:standalone', ['webdriver:update'], webdriverStandalone);
 
 
 gulp.task('e2e', ['build', 'webdriver:update'], function () {
-  gulp.run('serve');
-  gulp.src(["./source/tests/e2e/*.js"])
+  var stream = gulp.run('serve');
+  return gulp.src(["./source/tests/e2e/*.js"])
     .pipe(protractor({
         configFile: "protractor.config.js",
         args: ['--baseUrl', 'http://127.0.0.1:8204']
     }))
-    .on('error', function(e) { throw e; });
+    .on('error', function(e) { throw e; })
+    .on('end', function(e) {
+      webserver().emit('kill');
+    });
+
 });
