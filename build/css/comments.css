@@ -5,7 +5,6 @@
   90%,
   100% {
     -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   0% {
     -webkit-transform: scaleX(0);
@@ -22,7 +21,6 @@
   75%,
   90%,
   100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   0% {
@@ -39,6 +37,7 @@ html {
   padding: 0;
 }
 body {
+  margin: 20px;
   font-family: "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222222;
   line-height: 1.25;
@@ -47,15 +46,12 @@ body {
   -webkit-font-smoothing: antialiased;
   font-size: 1.75em;
   background-color: #ffffff;
-  margin: 20px;
 }
 .comment_section_container {
   position: relative;
-  padding: 0;
   background-color: #ffffff;
   border: none;
-  border-radius: 4px;
-  box-shadow: none;
+  border-radius: 6px;
   max-height: 500px;
   border: 1px solid #dddddd;
 }
@@ -69,6 +65,7 @@ body {
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1px;
+  border-radius: 5px 5px 0 0;
 }
 .comment_section_container .comment_container {
   position: relative;
@@ -128,6 +125,7 @@ body {
   width: 100%;
 }
 .comment_section_container .comment_container table.user_comment tbody tr td:nth-child(2) .comment {
+  display: inline-block;
   margin-right: 0px;
   margin-left: 80px;
   padding: 8px 12px 7px 12px;
@@ -136,11 +134,8 @@ body {
   font-weight: bold;
   background-color: #4ca5e1;
   text-align: left;
-  display: inline-block;
   -webkit-animation: pop 0.2s;
-  /* Safari 4+ */
   animation: pop 0.2s;
-  /* IE 10+ */
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -157,6 +152,7 @@ body {
   padding: 15px;
   border-top: 1px solid #dddddd;
   background-color: #f6f6f6;
+  border-radius: 0 0 5px 5px;
 }
 .comment_section_container .comment_input .form-group {
   margin-bottom: 0;
