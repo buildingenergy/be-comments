@@ -113,23 +113,7 @@ gulp.task('webdriver:update', webdriverUpdate);
 gulp.task('webdriver:standalone', ['webdriver:update'], webdriverStandalone);
 
 
-gulp.task('e2e', ['build', 'webdriver:update'], function () {
-  gulp.run('serve');
-  return gulp.src(["./source/tests/e2e/*.js"])
-    .pipe(protractor({
-        configFile: "protractor.config.js",
-        args: ['--baseUrl', 'http://127.0.0.1:8204']
-    }))
-    .on('error', function(e) { throw e; })
-    .on('end', function(e) {
-      // stream.emit('kill');
-      console.log('tests completed');
-    });
-
-});
-
-
-gulp.task('testweb', ['webdriver:update'], function() {
+gulp.task('e2e', ['build', 'webdriver:update'], function() {
   // var stream = gulp.src('.').pipe(webserver());
   var stream = gulp.src('.').pipe(webserver({
     livereload: false,
