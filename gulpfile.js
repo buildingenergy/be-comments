@@ -64,7 +64,7 @@ gulp.task('serve', ['prereqs'], function() {
             livereload: true,
             port: 8204,
             directoryListing: true,
-            open: false,
+            open: true,
             fallback: "demo/index.html"
         }));
 });
@@ -103,9 +103,8 @@ gulp.task('karma', ['build'], function() {
 });
 
 gulp.task('autotest', function() {
-  return gulp.watch(['source/js/**/*.js', '!source/js/**/templates.js', 'source/templates/*.html', 'tests/unit/*.js'], function (){
+  return gulp.watch(['source/js/**/*.js', '!source/js/**/templates.js', 'source/templates/*.html', 'tests/unit/*.js', 'tests/e2e/*.js'], function (){
     gulp.run('karma');
-    gulp.run('e2e');
   });
 });
 
@@ -115,7 +114,7 @@ gulp.task('webdriver:standalone', ['webdriver:update'], webdriverStandalone);
 
 
 gulp.task('e2e', ['build', 'webdriver:update'], function () {
-  var stream = gulp.run('serve');
+  gulp.run('serve');
   return gulp.src(["./source/tests/e2e/*.js"])
     .pipe(protractor({
         configFile: "protractor.config.js",
@@ -123,7 +122,32 @@ gulp.task('e2e', ['build', 'webdriver:update'], function () {
     }))
     .on('error', function(e) { throw e; })
     .on('end', function(e) {
-      webserver().emit('kill');
+      // stream.emit('kill');
+      console.log('tests completed');
     });
 
+});
+
+
+gulp.task('testweb', ['webdriver:update'], function() {
+  // var stream = gulp.src('.').pipe(webserver());
+  var stream = gulp.src('.').pipe(webserver({
+    livereload: false,
+    port: 8204,
+    directoryListing: true,
+    open: false,
+    fallback: "demo/index.html"
+  }));
+  gulp.src(["./source/tests/e2e/*.js"])
+    .pipe(protractor({
+        configFile: "protractor.config.js",
+        args: ['--baseUrl', 'http://127.0.0.1:8204']
+    }))
+    .on('error', function(e) { throw e; })
+    .on('end', function(e) {
+      console.log('tests completed');
+      setTimeout(function () {
+        stream.emit('kill');
+      }, 300);
+    });
 });
