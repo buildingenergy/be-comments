@@ -1,11 +1,15 @@
-## Angular Comments
+## AngularJS Bootstrap Comments
 
 easy to use directive and css for a nice comment block
 (jquery free except for testing)
 
-live demo: http://buildingenergy.github.io/be-comments/
-
 ![comments](/images/comments.png?raw=true)
+
+
+### demo
+
+http://buildingenergy.github.io/be-comments/
+
 
 ### install
 
@@ -20,13 +24,9 @@ live demo: http://buildingenergy.github.io/be-comments/
 
 Add this to your `bower.json`
 
-```json
-{
-  "be-comments": "https://<token here>@github.com/buildingenergy/be-comments.git"
-}
+```console
+$ bower install be-comments
 ````
-
-then `bower install`
 
 include `comments.js`, `comments.css` in your HTML
 
@@ -96,8 +96,7 @@ npm install -g gulp
 npm install -g bower
 npm install -g karma-cli
 npm install
-bower install
-gulp build
+gulp  # this will build and open a browser which you can navigate to demo/index.html
 ```
 
 #### test
@@ -116,7 +115,7 @@ gulp karma
 
 ### license
 
-see [LICENSE.md](LICENSE.md)
+see [LICENSE](LICENSE)
 
 #### release
 
@@ -134,7 +133,6 @@ see [LICENSE.md](LICENSE.md)
 ### todos
 
 - ~~figure out why two gulp builds are needed to get htmlMinify included~~
-- adds ES6 transpiling
 - fix min map
-- selenium tests
+- ~~selenium tests~~
 - ~~unit tests~~
