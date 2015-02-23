@@ -60,8 +60,8 @@ angular.controller('myController', []).controller('myController', ['$scope', fun
         comments: [{
             text: "This looks good, let's send it over the wall...",
             name: "Mike Smith",
-            email: "ms@me.com"
-            // coming soon datetime stamps
+            email: "ms@me.com",
+            datetime: "2015-02-23T15:37:20"
         }]
     };
     $scope.user = {
@@ -73,7 +73,7 @@ angular.controller('myController', []).controller('myController', ['$scope', fun
      * @param {obj} comment
      */
     $scope.logComment = function (comment) {
-        console.log(comment): // {text: "entered comment text", name: "John Rocks", email: "gnar@crushing.it"}
+        console.log(comment): // {text: "entered comment text", name: "John Rocks", email: "gnar@crushing.it", datetime: new Date() object}
     };
 
 }]);
