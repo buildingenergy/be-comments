@@ -11,24 +11,15 @@ easy to use directive and css for a nice comment block
 http://buildingenergy.github.io/be-comments/
 
 
-### install
-
-#### requires (see bower.json)
-
-- AngularJS
-- font-awesome
-- lodash
-- bootstrap css
-
-#### getting it
-
-Add this to your `bower.json`
+### quick start
 
 ```console
 $ bower install be-comments
 ````
 
-include `comments.js`, `comments.css` in your HTML
+requires (see [bower.json](bower.json)): AngularJS, font-awesome, lodash, bootstrap css
+
+include `comments.min.js`, `comments.css` in your HTML
 
 ```html
 <!-- these should be somewhere -->
